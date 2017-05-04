@@ -1,6 +1,6 @@
 class CandiesController < ApplicationController
   def candy_action
-    @candy = Candy.first
+    @candy = Candy.all
     render 'candy.html.erb'
   end
 end
