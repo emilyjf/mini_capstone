@@ -5,16 +5,18 @@
 
 <h1><meta name="viewport" content="width=device-width, initial-scale=1">Candy</h1>
 <div class="row">
-  <% @candy.each do |stuff| %>
+  <% @candies.each do |stuff| %>
     <div class="col-md-4">
       <h3>Name: <%= stuff.name.capitalize %></h3>
       <h4>Description: <%= stuff.description.capitalize %></h4>
       <h4>Price: <%= stuff.price %></h4>
 
-      <img id="myCarousel" src="<%= stuff.image %>" class="img-rounded">
-
+      
+      <a href="<%= stuff.id %>" class="img-rounded"><img id="myCarousel" src="<%= stuff.image %>" class="img-rounded"></a>
     </div>
   <% end %>
+
+  <a href=""
 </div>
 
 <!-- <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"> -->
