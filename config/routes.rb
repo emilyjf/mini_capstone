@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   get '/' => 'candies#index'
   get '/candies' => 'candies#index'
-  get '/candies/:id' => 'candies#show'
+
+  get '/candies/new' => 'candies#new'
   post '/candies' => 'candies#create'
-  get '/recipes/new' => 'recipes#new'
+
+  get '/candies/:id' => 'candies#show'
+  
+  get '/candies/:id/edit' => 'candies#edit'
+  patch '/candies/:id' => 'candies#update'
+
+  delete '/candies/:id' => 'candies#destroy'
 end

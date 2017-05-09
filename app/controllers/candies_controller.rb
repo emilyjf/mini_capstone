@@ -18,5 +18,30 @@ class CandiesController < ApplicationController
                       price: params[:price]
                       )
     candy.save
+    flash[:success] = "Candy successfully created."
+    redirect_to "/candies/#{ candy.id }"
   end
+
+  def edit
+    @candy = Candy.find(params[:id])
+  end
+
+  def update
+    candy = Candy.find(params[:id])
+    candy.assign_attributes(
+                            name: params[:name],
+                            description: params[:description],
+                            price: params[:price]
+                            )
+  candy.save
+  flash[:success] = "Candy successfully created."
+  redirect_to "/candies/#{ candy.id }"
+  end
+
+    def destroy
+      candy = Candy.find(params[:id])
+      candy.destroy
+      flash[:success] = "Candy successfully deleted."
+      redirect_to "/"
+    end
 end
