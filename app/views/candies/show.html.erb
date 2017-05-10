@@ -1,6 +1,10 @@
-<h3>Name: <%= @candy.name.capitalize %></h3>
-<h4>Description: <%= @candy.description.capitalize %></h4>
-<h4>Price: <%= @candy.price %></h4>
+<h3><%= @candy.name.capitalize %></h3>
+<h5>Last updated on: <%= @candy.friendly_updated_at %></h5>
+<h4>Description:<%= @candy.description.capitalize %></h4>
+<h4>Price:<%= @candy.price %></h4>
+<h5>Tax:<%= @candy.tax %></h5>
+<h5>NEED TAX TO APPEAR HERE</h5>
+<h5>NEED TOTAL TO APPEAR HERE</h5>
 
 <%= link_to "Edit Candy", "/candies/#{ @candy.id }/edit" %>
-<%= link_to "Delete", "/candies/#{ @candy.id }", method: :delete %>
+<%= link_to "Delete", "/candies/#{ @candy.id }", method: :delete%>
