@@ -4,11 +4,15 @@ class Candy < ApplicationRecord
   end
 
   def sale_message
-    if price < 2
-      puts "Discount item!"
+    if discounted?
+      "Discount item!"
     else
-      puts "Everyday value!"
+      "Everyday value!"
     end
+  end
+  
+  def discounted?
+    price < 20
   end
 
   def tax
