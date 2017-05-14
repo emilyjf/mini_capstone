@@ -1,4 +1,8 @@
 class Candy < ApplicationRecord
+  def discounted?
+    price < 1.50
+  end
+
   def friendly_updated_at
     updated_at.strftime('%b %d, %Y')
   end
@@ -9,10 +13,6 @@ class Candy < ApplicationRecord
     else
       "Everyday value!"
     end
-  end
-  
-  def discounted?
-    price < 20
   end
 
   def tax

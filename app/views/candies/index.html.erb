@@ -4,7 +4,7 @@
     <div class="thumbnail well">
       <h3><a href="/candies/<%= candy.id %>"><%= candy.name.capitalize %></a></h3>
       <h4><%= candy.description.capitalize %></h4>
-      
+      <h4><%= candy.price %></h4>
       <h4>Price: <%= number_to_currency(candy.price) %></h4>
       <img src=<%= candy.image %> >
       <br>
