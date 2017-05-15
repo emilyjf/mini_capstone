@@ -6,6 +6,9 @@ class CandiesController < ApplicationController
     discount = params[:discount]
     search_term = params[:search_term]
 
+    p "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"
+    p search_term
+
     if search_term 
       @candies = @candies.where(
                               "name iLIKE ? OR description iLIKE ?", 
@@ -23,6 +26,7 @@ class CandiesController < ApplicationController
     elsif sort_attribute 
       @candies = @candies.order(sort_attribute)
     end
+  end
   
 
   def show

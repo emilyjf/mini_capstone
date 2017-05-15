@@ -2,6 +2,7 @@
 <h5>Last updated on: <%= @candy.friendly_updated_at %></h5>
 <h4>Description:<%= @candy.description.capitalize %></h4>
 <h4><%= @candy.sale_message %></h4>
+<img src=<%= @candy.image %>>
 <p class="<%= "red-price" if @candy.discounted? %>">Price: <%= number_to_currency(@candy.price) %>
 <h5>Tax:<%= number_to_currency(@candy.tax) %></h5>
 <h5>Total:<%= number_to_currency(@candy.total) %></h5>
