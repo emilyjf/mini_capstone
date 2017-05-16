@@ -1,4 +1,6 @@
 class Candy < ApplicationRecord
+  belongs_to :supplier
+
   def discounted?
     price < 1.50
   end

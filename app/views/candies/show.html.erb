@@ -7,5 +7,6 @@
 <h5>Tax:<%= number_to_currency(@candy.tax) %></h5>
 <h5>Total:<%= number_to_currency(@candy.total) %></h5>
 
+<h5>Supplied by:<%= @candy.supplier.name %></h5>
 <%= link_to "Edit Candy", "/candies/#{ @candy.id }/edit" %>
-<%= link_to "Delete", "/candies/#{ @candy.id }", method: :delete%>
+<%= link_to "Delete", "/candies/#{ @candy.id }", method: :delete %>
