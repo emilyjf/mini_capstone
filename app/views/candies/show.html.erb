@@ -1,12 +1,21 @@
-<h3><%= @candy.name.capitalize %></h3>
+<h2><%= @candy.name.capitalize %></h2>
 <h5>Last updated on: <%= @candy.friendly_updated_at %></h5>
-<h4>Description:<%= @candy.description.capitalize %></h4>
+<h4>Description: <%= @candy.description.capitalize %></h4>
 <h4><%= @candy.sale_message %></h4>
-<img src=<%= @candy.image %>>
-<p class="<%= "red-price" if @candy.discounted? %>">Price: <%= number_to_currency(@candy.price) %>
-<h5>Tax:<%= number_to_currency(@candy.tax) %></h5>
-<h5>Total:<%= number_to_currency(@candy.total) %></h5>
+<img src=<%= @candy.first_image_url %>>
+<p class="<%= "red-price" if @candy.discounted? %>"><h4>Price: <%= number_to_currency(@candy.price) %></h4>
+<h4>Tax: <%= number_to_currency(@candy.tax) %></h4>
+<h4>Total: <%= number_to_currency(@candy.total) %></h4>
 
-<h5>Supplied by:<%= @candy.supplier.name %></h5>
-<%= link_to "Edit Candy", "/candies/#{ @candy.id }/edit" %>
-<%= link_to "Delete", "/candies/#{ @candy.id }", method: :delete %>
+<h4>Supplied by: <%= @candy.supplier.name %></h4>
+<div>
+<h4><%= link_to "Edit Candy", "/candies/#{ @candy.id }/edit" %></h4>
+</div>
+<h4><%= link_to "Delete", "/candies/#{ @candy.id }", method: :delete %></h4>
+
+
+<% @candy.images.each do |image| %>
+  <div class="col-md-6">
+      <img src="<%= @candy.first_image_url %>" alt="<%= @candy.name %>" class="img-responsive show-product">
+  </div>
+<% end %>

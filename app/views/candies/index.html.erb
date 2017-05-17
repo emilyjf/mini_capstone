@@ -1,16 +1,21 @@
+<section>
 <div class="row">
   <% @candies.each do |candy| %>
     <div class="col-md-4">
-    <div class="thumbnail well">
+    <div class="candy_single">
       <h3><a href="/candies/<%= candy.id %>"><%= candy.name.capitalize %></a></h3>
       <h4><%= candy.description.capitalize %></h4>
       <h4>Price: <%= number_to_currency(candy.price) %></h4>
-      <img src=<%= candy.image %> >
+      <a href="/candies/<%= candy.id %>" title="View Candy"><img src="<%= candy.first_image_url %>" alt="<%= candy.name %>" class="img-responsive candy_single_image"></a>
+      <p>Description: <%= candy.description %></p>
       <br>
-    </div>
+      </div>
     </div>
     <% end %>
 </div>
-      
+</section>      
+
+          
      
+
   

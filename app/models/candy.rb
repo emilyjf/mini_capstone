@@ -1,5 +1,6 @@
 class Candy < ApplicationRecord
   belongs_to :supplier
+  has_many :images
 
   def discounted?
     price < 1.50
@@ -23,5 +24,14 @@ class Candy < ApplicationRecord
 
   def total
     price + tax
+  end
+
+  def first_image_url
+    image_collection = images
+    if image_collection.length == 0
+        "https://img.clipartfest.com/1953bbaa57435d7f4451d8525033f714_-oops-clipart-clipart-oops_476-480.jpeg"
+    else
+      image_collection.first.url
+    end
   end
 end
