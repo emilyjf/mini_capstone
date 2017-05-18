@@ -48,10 +48,22 @@
       </ul>
 
       <form class="navbar-form navbar-left" action="/candies" method="get">
+
+        <% if current_user %>
+              <a>Welcome, <%= current_user.name %>!</a>
+            <% end %>
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search_term">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
+
+        <% if current_user %>
+          <a href="/logout">Log Out</a>
+        <% else %>
+          <a href="/signup">Sign Up</a>
+          <a href="/login">Log In</a>
+        <% end %>
+        
       </form>
 
       

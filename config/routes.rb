@@ -13,4 +13,12 @@ Rails.application.routes.draw do
   delete '/candies/:id' => 'candies#destroy'
 
   get '/random' => 'candies#random'
+
+  get "/signup" => "users#new"
+  post "/users" => "users#create"
+
+  get "/login" => "sessions#new"
+  post "/login" => "sessions#create"
+  get "/logout" => "sessions#destroy"
+
 end
