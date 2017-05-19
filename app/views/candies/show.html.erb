@@ -19,3 +19,14 @@
       <img src="<%= @candy.first_image_url %>" alt="<%= @candy.name %>" class="img-responsive show-product">
   </div>
 <% end %>
+
+<%= form_tag "/orders", method: :post do %>
+  <div>
+    Quantity: <input type="text" name="quantity">
+  </div>
+  <div>
+    Product ID: <input type="text" name="product_id">
+  </div>
+<input type="submit" value="Buy Now" class="btn btn-success">
+<% end %>
+

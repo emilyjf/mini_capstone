@@ -1,6 +1,7 @@
 class Candy < ApplicationRecord
   belongs_to :supplier
   has_many :images
+  has_many :orders
 
   def discounted?
     price < 1.50
