@@ -40,30 +40,37 @@
 #   }
 #   ])
 
-Image.create!([
-  {
-    url: "https://cdn-jpg.thedailymeal.net/sites/default/files/story/Main_gummybears-istock-thinkstock.jpg",
-    name: "gummy_bears",
-    candy_id: 1
-  },{
-    url: "https://www.sciencenewsforstudents.org/sites/default/files/2016/11/main/articles/860_main_milkchocolate.png",
-    name: "chocolate_bars",
-    candy_id: 2
-  },{
-    url: "http://www.dbchocolate.com/assets/images/marshmallowmilk2014.jpg",
-    name: "chocolate_covered_marshmallows",
-    candy_id: 3
-  },{
-    url: "http://www.thecomfortofcooking.com/wp-content/uploads/2014/01/HomemadeReesesPeanutButterCups-11.jpg",
-    name: "peanut_butter_cups",
-    candy_id: 4
-  },{
-    url: "http://www.lovethispic.com/uploaded_images/131721-Runts.jpg",
-    name: "runts",
-    candy_id: 5
-  },{
-    url: "https://triviahappy.com/wp-content/uploads/2014/08/gumballs.jpg",
-    name: "gumballs",
-    candy_id: 6
-  }
-  ])
+# Image.create!([
+#   {
+#     url: "https://cdn-jpg.thedailymeal.net/sites/default/files/story/Main_gummybears-istock-thinkstock.jpg",
+#     name: "gummy_bears",
+#     candy_id: 1
+#   },{
+#     url: "https://www.sciencenewsforstudents.org/sites/default/files/2016/11/main/articles/860_main_milkchocolate.png",
+#     name: "chocolate_bars",
+#     candy_id: 2
+#   },{
+#     url: "http://www.dbchocolate.com/assets/images/marshmallowmilk2014.jpg",
+#     name: "chocolate_covered_marshmallows",
+#     candy_id: 3
+#   },{
+#     url: "http://www.thecomfortofcooking.com/wp-content/uploads/2014/01/HomemadeReesesPeanutButterCups-11.jpg",
+#     name: "peanut_butter_cups",
+#     candy_id: 4
+#   },{
+#     url: "http://www.lovethispic.com/uploaded_images/131721-Runts.jpg",
+#     name: "runts",
+#     candy_id: 5
+#   },{
+#     url: "https://triviahappy.com/wp-content/uploads/2014/08/gumballs.jpg",
+#     name: "gumballs",
+#     candy_id: 6
+#   }
+#   ])
+
+
+CategoryCandy.create!(  
+                      {category_id: 1, product_id: 2},
+                      {category_id: 2, product_id: 4},
+                      {category_id: 1, product_id: 6}
+                      )

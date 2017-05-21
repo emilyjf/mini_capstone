@@ -4,10 +4,9 @@
     <div class="col-md-4">
     <div class="candy_single">
       <h3><a href="/candies/<%= candy.id %>"><%= candy.name.capitalize %></a></h3>
-      <h4><%= candy.description.capitalize %></h4>
+      <h4>Description: <%= candy.description.capitalize %></h4>
       <h4>Price: <%= number_to_currency(candy.price) %></h4>
       <a href="/candies/<%= candy.id %>" title="View Candy"><img src="<%= candy.first_image_url %>" alt="<%= candy.name %>" class="img-responsive candy_single_image"></a>
-      <p>Description: <%= candy.description %></p>
       <br>
       </div>
     </div>

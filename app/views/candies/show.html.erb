@@ -16,16 +16,18 @@
 
 <% @candy.images.each do |image| %>
   <div class="col-md-6">
-      <img src="<%= @candy.first_image_url %>" alt="<%= @candy.name %>" class="img-responsive show-product">
+    <img src="<%= @candy.first_image_url %>" alt="<%= @candy.name %>" class="img-responsive show-product">
   </div>
 <% end %>
 
 <%= form_tag "/orders", method: :post do %>
   <div>
-    Quantity: <input type="text" name="quantity">
+    <%= label_tag :quantity %>
+    <%= text_field_tag :quantity, nil, placeholder: "Quantity" %>
   </div>
   <div>
-    Product ID: <input type="text" name="product_id">
+    <%= label_tag :product_id %>
+    <%= hidden_field_tag :product_id, @product_id %>
   </div>
 <input type="submit" value="Buy Now" class="btn btn-success">
 <% end %>

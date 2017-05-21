@@ -85,6 +85,10 @@ class CandiesController < ApplicationController
       sort_order = params[:sort_order]
       discount = params[:discount]
       search_term = params[:search_term]
+      
+      if category
+        @products = Category.find_by(name: "holiday").products
+      end
 
       if search_term
         @candies = @candies.where(
