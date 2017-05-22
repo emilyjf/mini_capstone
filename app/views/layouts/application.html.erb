@@ -37,7 +37,7 @@
           <li><a href="/random">Random Candy</a></li>
             <li role="separator" class="divider"></li>
             <% Category.all.each.do |category| %>
-              <li><a href="/candies?category=<%= category %>"<%= category.name.titleize %></a></li>
+              <li><a href="/candies?category=<%= category.name %>"<%= category.name.titleize %></a></li>
             <% end %>
               <form action ="/candies" method="get">
               <div class="form-group">
