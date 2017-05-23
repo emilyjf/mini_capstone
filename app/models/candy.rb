@@ -2,9 +2,9 @@ class Candy < ApplicationRecord
   belongs_to :supplier
   has_many :images
   has_many :orders
-
   has_many :category_candies
   has_many :categories, through: :category_candies
+
   def discounted?
     price < 1.50
   end
@@ -36,5 +36,9 @@ class Candy < ApplicationRecord
     else
       image_collection.first.url
     end
+  end
+
+  def stringify_categories
+    categories.map { |category| category.name.titleize }.join(", ")
   end
 end

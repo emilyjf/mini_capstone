@@ -1,6 +1,10 @@
 <h2><%= @candy.name.capitalize %></h2>
 <h5>Last updated on: <%= @candy.friendly_updated_at %></h5>
 <h4>Description: <%= @candy.description.capitalize %></h4>
+<p>Categories: </p>
+  <%= @candy.categories.each do |category| %></h4>
+  <p><%= @candy.categories.map { |category| category.name.titleize }.join(", ") %></p>
+  <% end %>
 <h4><%= @candy.sale_message %></h4>
 <img src=<%= @candy.first_image_url %>>
 <p class="<%= "red-price" if @candy.discounted? %>"><h4>Price: <%= number_to_currency(@candy.price) %></h4>

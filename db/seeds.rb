@@ -68,9 +68,15 @@
 #   }
 #   ])
 
+Category.create!([
+                  {name: "expensive"},
+                  {name: "individually-wrapped"},
+                  {name: "holiday"}
+                ])
 
-CategoryCandy.create!(  
-                      {category_id: 1, product_id: 2},
-                      {category_id: 2, product_id: 4},
-                      {category_id: 1, product_id: 6}
-                      )
+
+CategoryCandy.create!([  
+                      {category_id: 1, candy_id: 2},
+                      {category_id: 2, candy_id: 4},
+                      {category_id: 1, candy_id: 6}
+                      ])

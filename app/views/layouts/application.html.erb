@@ -1,87 +1,89 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MiniCapstone</title>
+    <title>Candy Capstone</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Candy</a>
-    </div>
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Candy</a>
+      </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-          <li><a href="/candies?sort=price">Price Low to High</a></li>
-          <li><a href="/candies?sort=price&&sort_order=DESC">Price High to Low</a></li>
-          <li><a href="/candies?discount=1.50">Discount Items</a></li>
-            <li role="separator" class="divider"></li>
-          <li><a href="/random">Random Candy</a></li>
-            <li role="separator" class="divider"></li>
-            <% Category.all.each.do |category| %>
-              <li><a href="/candies?category=<%= category.name %>"<%= category.name.titleize %></a></li>
-            <% end %>
-              <form action ="/candies" method="get">
-              <div class="form-group">
-                <input type="text" name="search_term" placeholder="Search">
-              </div>
-              <input type="submit" value="Find">
-            </form>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            <li><a href="/candies?sort=price">Price Low to High</a></li>
+            <li><a href="/candies?sort=price&&sort_order=DESC">Price High to Low</a></li>
+            <li><a href="/candies?discount=1.50">Discount Items</a></li>
+              <li role="separator" class="divider"></li>
+            <li><a href="/random">Random Candy</a></li>
+              <li role="separator" class="divider"></li>
+              <% Category.all.each do |category| %>
+                <li><a href="/candies?category=<%= category.name %>"<%= category.name.titleize %>></a></li>
+              <% end %>
+                <form action ="/candies" method="get">
+                <div class="form-group">
+                  <input type="text" name="search_term" placeholder="Search">
+                </div>
+                <input type="submit" value="Find">
+              </form>
+              <li><a href="/candies?category=expensive">Expensive Candy</a></li>
+              <li><a href="/candies?category=individually-wrapped">Individually-Wrapped Candy</a></li>
+              <li><a href="/candies?category=holiday">Holiday Candy</a></li>
+            </ul>
+          </li>
+        </ul>
 
-      <form class="navbar-form navbar-left" action="/candies" method="get">
+        <form class="navbar-form navbar-left" action="/candies" method="get">
 
-        <% if current_user %>
-              <a>Welcome, <%= current_user.name %>!</a>
-            <% end %>
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="search_term">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+          <% if current_user %>
+                <a>Welcome, <%= current_user.name %>!</a>
+          <% end %>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" name="search_term">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
 
-        <% if current_user %>
-          <a href="/logout">Log Out</a>
-        <% else %>
-          <a href="/signup">Sign Up</a>
-          <a href="/login">Log In</a>
-        <% end %>
+          <% if current_user %>
+            <a href="/logout">Log Out</a>
+          <% else %>
+            <a href="/signup">Sign Up</a>
+            <a href="/login">Log In</a>
+          <% end %>
+          
+        </form>
+
         
-      </form>
-
-      
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
   <div class="container">
     <% flash.each do |name, message| %>
-    <div class="alert alert-warning alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= message %>
+    <% end %>
   </div>
-<% end %>
     <%= yield %>
-    </div>
-  </body>
+  </div>
+  </body> 
 </html>
