@@ -1,0 +1,3 @@
+<% @carted_products.each do |carted_product| %>
+  <h3><%= carted_product.candy.name %> - <%= number_to_currency(carted_product.product.price) %> X <%= carted_product.quantity %></h3>
+<% end %>

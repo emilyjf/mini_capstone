@@ -1,10 +1,9 @@
+
+<div class="item">
 <h2><%= @candy.name.capitalize %></h2>
 <h5>Last updated on: <%= @candy.friendly_updated_at %></h5>
 <h4>Description: <%= @candy.description.capitalize %></h4>
-<p>Categories: </p>
-  <%= @candy.categories.each do |category| %></h4>
-  <p><%= @candy.categories.map { |category| category.name.titleize }.join(", ") %></p>
-  <% end %>
+<p>Categories: <%= @candy.categories.map { |category| category.name.titleize }.join(", ") %></p>
 <h4><%= @candy.sale_message %></h4>
 <img src=<%= @candy.first_image_url %>>
 <p class="<%= "red-price" if @candy.discounted? %>"><h4>Price: <%= number_to_currency(@candy.price) %></h4>
@@ -19,9 +18,9 @@
 
 
 <% @candy.images.each do |image| %>
-  <div class="col-md-6">
-    <img src="<%= @candy.first_image_url %>" alt="<%= @candy.name %>" class="img-responsive show-product">
-  </div>
+  <!-- <div class="col-md-6"> -->
+    <!-- <img src="<%= @candy.first_image_url %>" alt="<%= @candy.name %>" class="img-responsive show-product"> -->
+  <!-- </div> -->
 <% end %>
 
 <%= form_tag "/carted_products", method: :post do %>
@@ -31,8 +30,8 @@
   </div>
   <div>
     <%= label_tag :candy_id %>
-    <%= hidden_field_tag :candy_id, @candy_id %>
+    <%= hidden_field_tag :candy_id, @candy.id %>
   </div>
 <input type="submit" value="Add to Cart" class="btn btn-success">
 <% end %>
-
+</div>

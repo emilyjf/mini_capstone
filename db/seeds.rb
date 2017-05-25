@@ -30,7 +30,7 @@
 #     name: "peanut_butter_cups",
 #     candy_id: 4
 #   },{
-#     url: "http://www.lovethispic.com/uploaded_images/131721-Runts.jpg",
+#     url: "http://www.niftynuthouse.com/images/P/runts-01.jpg",
 #     name: "runts",
 #     candy_id: 5
 #   },{

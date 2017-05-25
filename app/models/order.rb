@@ -1,8 +1,9 @@
 class Order < ApplicationRecord
   belongs_to :candy, optional: true
-  belongs_to :user, optional: true
+  belongs_to :user
+  
   has_many :carted_products
-
+  has_many :candies, through: :carted_products
 
   def calculate_subtotal
     self.subtotal = candy.price * quantity
@@ -15,6 +16,5 @@ class Order < ApplicationRecord
   def total
     self.total = subtotal + tax
   end
-
 end
 

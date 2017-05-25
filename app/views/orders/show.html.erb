@@ -2,17 +2,11 @@
 
 <div class="well">
   <h3>Your order number is: <%= @order_id %></h3>
-  <h3>Product: <%= @order.product.name %></h3>
-  <h3>Price: <%= number_to_currency(@order.product.price) %></h3>
-  <h3>Quantity ordered: <%= @quantity %></h3>
+  <% @order.carted_products.each do |carted_product| %>
+    <h3><%= carted_product.candy.name %> - <%= number_to_currency(carted_product.candy.price) %> X <%= carted_product.quantity %></h3>
+  <% end %>
   <h3>Subtotal: <%= number_to_currency(@order.subtotal) %></h3>
   <h3>Tax: <%= number_to_currency(@order.tax) %></h3>
   <h3>Total: <%= number_to_currency(@order.total) %></h3>
 </div>
 
-<h3>Your email address is: <%= </h3>
-<a href="/candies/<%= candy.id %>" title="View Candy"><img src="<%= candy.first_image_url %>" alt="<%= candy.name %>" class="img-responsive candy_single_image"></a>
-<h3>Subtotal: <%= number_to_currency(@candy.price) * @quantity %></h3>
-<h3>Tax: <%= number_to_currency(@candy.tax) * @quantity %></h3>
-<h3>number_to_currency(Total: <%= number_to_currency(@candy.subtotal) + (@candy.tax)) %></h3>
-<h3>Orded placed at: <%=   %></h3>

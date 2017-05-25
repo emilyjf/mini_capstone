@@ -1,0 +1,20 @@
+<h2>Checkout Page</h2>
+
+<section>
+<div class="well">
+  <% @carted_products.each do |carted_product| %>
+    <h3><%= carted_product.candy.name %> - <%= number_to_currency(carted_product.candy.price) %> X <%= carted_product.quantity %> - <%= link_to "remove", "/carted_products/#{ carted_product.id }", method: :delete %></h3>
+  <% end %>
+    <div class="col-md-4">
+    <div class="candy_single">
+      <br>
+      </div>
+    </div>
+  <div>
+    <%= form_tag "/orders", method: :post do %>
+      <%= link_to "Buy Now!", "/orders", method: :post, class: "btn btn-success" %>
+    <% end %>
+  </div>
+    
+</div>
+</section>      

@@ -1,9 +1,13 @@
 class Candy < ApplicationRecord
   belongs_to :supplier
+  
   has_many :images
-  has_many :orders
+  has_many :carted_products
+  has_many :orders, through: :carted_products
+ 
   has_many :category_candies
   has_many :categories, through: :category_candies
+  
 
   def discounted?
     price < 1.50
