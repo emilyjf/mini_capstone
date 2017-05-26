@@ -1,5 +1,8 @@
 class CandiesController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show, :random]
+
   def index
+      @cart_count = current_user.cart.count
       @candies = Candy.all
       sort_attribute = params[:sort]
       sort_order = params[:sort_order]
@@ -31,19 +34,22 @@ class CandiesController < ApplicationController
   end
 
   def new
-
+    @candy = Candy.new   
   end
 
   def create
-    candy = Candy.new(
+    @candy = Candy.new(
                           name: params[:name],
                           description: params[:description],
                           price: params[:price],
                           supplier_id: params[:supplier][:supplier_id]
                           )
-    candy.save
-    flash[:success] = "Candy Created"
-    redirect_to "/candies/#{candy.id}"
+    if @candy.save
+      flash[:success] = "Candy Created"
+      redirect_to "/candies/#{candy.id}"
+    else
+      render 'new.html.erb' 
+    end
   end
 
   def show
@@ -63,7 +69,10 @@ class CandiesController < ApplicationController
                              )
     candy.save
     flash[:success] = "Candy Updated"
-    redirect_to "/candies/#{candy.id}"
+      redirect_to "/candies/#{candy.id}"
+    else
+      render 'new.html.erb'
+    end
   end
 
   def destroy

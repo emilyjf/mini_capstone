@@ -4,10 +4,15 @@ class Candy < ApplicationRecord
   has_many :images
   has_many :carted_products
   has_many :orders, through: :carted_products
- 
   has_many :category_candies
   has_many :categories, through: :category_candies
   
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :price, presence: true
+  validates :price, numericality: true
+  validates :description, presence: true
+  validates :description, length: { maximum: 500 }
 
   def discounted?
     price < 1.50

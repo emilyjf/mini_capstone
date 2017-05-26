@@ -21,7 +21,7 @@
         </button>
         <a class="navbar-brand" href="/candies">Candy</a>
       </div>
-
+      <% if current_user && 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
@@ -85,7 +85,7 @@
   </div>
     <%= yield %>
   </div>
-    <li><div><a href="/carted_products"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+    <li><div><a href="/carted_products"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart ( <%= @cart_count %> </a></li>
   </div>
   </body> 
 </html>

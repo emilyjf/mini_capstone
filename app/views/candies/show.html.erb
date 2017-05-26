@@ -11,10 +11,10 @@
 <h4>Total: <%= number_to_currency(@candy.total) %></h4>
 
 <h4>Supplied by: <%= @candy.supplier.name %></h4>
-<div>
+<% if admin_signed_in? %>
 <h4><%= link_to "Edit Candy", "/candies/#{ @candy.id }/edit" %></h4>
-</div>
 <h4><%= link_to "Delete", "/candies/#{ @candy.id }", method: :delete %></h4>
+<h4><%= link_to "Add Photo", "/products/#{@candy.id}/images/new", class=</h4>
 
 
 <% @candy.images.each do |image| %>
